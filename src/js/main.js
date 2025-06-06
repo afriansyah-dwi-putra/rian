@@ -167,6 +167,13 @@ if (navClose) {
   });
 }
 
+// Tutup sidebar saat item di dalamnya diklik
+document.querySelectorAll("#sidebar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show-sidebar");
+  });
+});
+
 // Button Share
 const shareBtn = document.getElementById("shareBtn");
 const dropdown = document.getElementById("shareDropdown");
