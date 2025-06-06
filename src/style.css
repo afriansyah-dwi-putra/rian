@@ -1134,6 +1134,9 @@ textarea.input {
   }
   .nav-toggle {
     display: flex;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
   }
   .main {
     margin-left: 0;
@@ -1196,6 +1199,16 @@ textarea.input {
   }
   .details-title {
     margin-bottom: var(--mb075);
+  }
+  #to-top {
+    height: 40px;
+    width: 40px;
+    padding: 0.75rem;
+  }
+  .arrow-up {
+    height: 16px;
+    width: 16px;
+    margin-top: 6px;
   }
 }
 
@@ -1394,5 +1407,50 @@ textarea.input {
   }
   .services-content {
     padding-right: 3.5rem;
+  }
+}
+
+/* Tombol kembali ke atas */
+#to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: none;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  background-color: #008b8b;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#to-top:hover {
+  animation: pulse 1s infinite;
+}
+
+.arrow-up {
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  transform: rotate(45deg);
+  margin: auto;
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

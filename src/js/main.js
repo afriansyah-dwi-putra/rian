@@ -235,3 +235,15 @@ function sendToWhatsApp(event) {
     alert("Allow pop-ups to open WhatsApp.");
   }
 }
+
+const toTop = document.getElementById("to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    toTop.style.display = "flex";
+    toTop.style.alignItems = "center";
+    toTop.style.justifyContent = "center";
+  } else {
+    toTop.style.display = "none";
+  }
+});
