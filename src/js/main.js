@@ -177,7 +177,6 @@ document.querySelectorAll("#sidebar a").forEach((link) => {
 // Button Share
 const shareBtn = document.getElementById("shareBtn");
 const dropdown = document.getElementById("shareDropdown");
-
 const pageUrl = encodeURIComponent(window.location.href);
 const pageTitle = encodeURIComponent(document.title);
 
