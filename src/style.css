@@ -139,6 +139,9 @@ input {
   font-size: var(--h1-font-size);
   margin-bottom: var(--mb3);
 }
+span {
+  color: var(--skin-color);
+}
 .section-title::before {
   content: attr(data-heading);
   display: block;
@@ -361,12 +364,32 @@ input {
   font-size: var(--biggest-font-size);
 }
 .home-subtitle {
-  font-size: var(--h3-font-size);
+  font-size: 20px;
   font-weight: var(--font-medium);
   margin-bottom: var(--mb075);
+  color: transparent;
+  -webkit-text-stroke: 0.7px var(--skin-color);
+  background-image: linear-gradient(var(--skin-color), var(--skin-color));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: 0 0;
+  animation: homeBgText 6s linear infinite;
+  animation-delay: 2s;
+}
+.home-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid var(--skin-color);
+  z-index: -1;
+  animation: homeCursorText 6s linear infinite;
+  animation-delay: 2s;
 }
 .home-description {
-  max-width: 450px;
+  max-width: 500px;
   margin-bottom: var(--mb2);
 }
 .my-info {
@@ -553,7 +576,7 @@ input {
   border-radius: 0.25rem;
 }
 .skills-bar {
-  background-color: #008b8b;
+  background-color: var(--skin-color);
 }
 .skills-percentage {
   display: block;
@@ -1091,6 +1114,10 @@ textarea.input {
   .home-data {
     text-align: center;
   }
+  .home-description {
+    max-width: 62.5rem;
+    margin-bottom: var(--mb2);
+  }
   .home-img {
     width: 240px;
   }
@@ -1419,7 +1446,7 @@ textarea.input {
   height: 40px;
   width: 40px;
   padding: 10px;
-  background-color: #008b8b;
+  background-color: var(--skin-color);
   border-radius: 50%;
   text-align: center;
   text-decoration: none;
@@ -1439,7 +1466,7 @@ textarea.input {
   border-left: 2px solid white;
   transform: rotate(45deg);
   margin: auto;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 @keyframes pulse {
@@ -1451,5 +1478,33 @@ textarea.input {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes homeBgText {
+  0%,
+  10%,
+  100% {
+    background-position: -33rem 0;
+  }
+  65%,
+  85% {
+    background-position: 0 0;
+  }
+}
+@keyframes homeCursorText {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  65%,
+  85% {
+    width: 100%;
+    opacity: 1;
+  }
+  75%,
+  81% {
+    opacity: 0;
   }
 }
