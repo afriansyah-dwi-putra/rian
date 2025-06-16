@@ -354,7 +354,7 @@ span {
 }
 .home-img {
   position: relative;
-  width: 480px;
+  width: 600px;
   border-radius: 0.75rem;
   justify-self: center;
   margin-left: auto;
@@ -1122,7 +1122,7 @@ textarea.input {
     margin-bottom: var(--mb2);
   }
   .home-img {
-    width: 400px;
+    width: 330px;
   }
   .sidebar {
     width: 100%;
@@ -1349,7 +1349,7 @@ textarea.input {
   }
   .home-img {
     display: block;
-    width: 400px;
+    width: 330px;
     justify-self: center;
   }
   .my-info {
@@ -1407,7 +1407,7 @@ textarea.input {
     margin-left: var(--mb1);
   }
   .home-img {
-    width: 400px;
+    width: 330px;
   }
   .home-title {
     font-size: var(--h1-font-size);
