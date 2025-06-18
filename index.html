@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <link rel="stylesheet" href="src/style.css" />
   </head>
@@ -113,9 +114,19 @@
 
       <!-- about section start -->
       <section class="about section" id="about">
-        <h2 class="section-title">About <span>Me</span></h2>
+        <h2 class="section-title" data-aos="flip-left" data-aos-duration="1000">About <span>Me</span></h2>
 
-        <div class="about-container container grid">
+        <div
+          class="about-container container grid"
+          data-aos="flip-left"
+          data-aos-offset="200"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="top-center"
+        >
           <img src="src/img/afriansyah2.png" alt="" class="about-img" />
 
           <div class="about-data">
@@ -825,5 +836,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="src/js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
