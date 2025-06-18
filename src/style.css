@@ -1069,7 +1069,7 @@ textarea.input {
   margin-top: 4.5rem;
 }
 .footer-copy a {
-  font-family: var(--signature-font);
+  font-family: var(--body-font);
   color: var(--skin-color);
 }
 /* .footer-copy a:hover {
