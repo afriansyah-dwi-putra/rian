@@ -242,14 +242,60 @@ function sendToWhatsApp(event) {
   }
 }
 
-const toTop = document.getElementById("to-top");
+//  animasi ketika klik menu home dan back to top
+document.addEventListener("DOMContentLoaded", function () {
+  const menuHome = document.querySelector('a[href="#home"]');
+  const toTop = document.getElementById("to-top");
+  const homeSection = document.querySelector("#home");
 
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 100) {
-    toTop.style.display = "flex";
-    toTop.style.alignItems = "center";
-    toTop.style.justifyContent = "center";
-  } else {
-    toTop.style.display = "none";
+  const container = document.querySelector(".home-data-container");
+  const homeSocial = document.querySelector(".home-social");
+  const navList = document.querySelector(".nav-list");
+  const shareBtn = document.getElementById("shareBtn");
+
+  // Tampilkan tombol to-top saat scroll
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+      toTop.style.display = "flex";
+      toTop.style.alignItems = "center";
+      toTop.style.justifyContent = "center";
+    } else {
+      toTop.style.display = "none";
+    }
+  });
+
+  function retriggerAnimation(element, animationClass) {
+    if (element) {
+      element.classList.remove("animate__animated", animationClass);
+      void element.offsetWidth;
+      element.classList.add("animate__animated", animationClass);
+    }
+  }
+
+  function scrollToHomeAndAnimate() {
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(() => {
+        retriggerAnimation(container, "animate__backInDown");
+        retriggerAnimation(homeSocial, "animate__pulse");
+        retriggerAnimation(navList, "animate__pulse");
+        retriggerAnimation(shareBtn, "animate__pulse");
+      }, 500);
+    }
+  }
+
+  if (menuHome) {
+    menuHome.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToHomeAndAnimate();
+    });
+  }
+
+  if (toTop) {
+    toTop.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToHomeAndAnimate();
+    });
   }
 });

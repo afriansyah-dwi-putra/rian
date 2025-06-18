@@ -739,25 +739,25 @@
           <div class="contact-content">
             <form action="" class="contact-form" id="contact-form" onsubmit="sendToWhatsApp(event)">
               <div class="input-container">
-                <input type="text" class="input" id="username" name="username" />
+                <input type="text" class="input" id="username" name="username" autocomplete="name" />
                 <label for="username" class="visually-hidden">Username</label>
                 <span>Username</span>
               </div>
 
               <div class="input-container">
-                <input type="email" class="input" id="Email" name="email" />
+                <input type="email" class="input" id="Email" name="email" autocomplete="email" />
                 <label for="Email" class="visually-hidden">Email</label>
                 <span>Email</span>
               </div>
 
               <div class="input-container">
-                <input type="tel" class="input" id="Phone" name="phone" />
+                <input type="tel" class="input" id="Phone" name="phone" autocomplete="tel" />
                 <label for="Phone" class="visually-hidden">Phone</label>
                 <span>Phone</span>
               </div>
 
               <div class="input-container textarea">
-                <textarea name="message" id="message" class="input"></textarea>
+                <textarea name="message" id="message" class="input" autocomplete="off"></textarea>
                 <label for="message" class="visually-hidden">Message</label>
                 <span>Message</span>
               </div>
