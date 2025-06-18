@@ -288,6 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (menuHome) {
     menuHome.addEventListener("click", function (e) {
       e.preventDefault();
+      history.pushState(null, null, "#home");
       scrollToHomeAndAnimate();
     });
   }
