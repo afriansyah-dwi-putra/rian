@@ -985,6 +985,17 @@ textarea.input {
   top: 1rem;
   transform: translateY(0);
 }
+/* Autofill override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--title-color) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .input-container span {
   position: absolute;
   top: 0;
