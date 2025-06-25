@@ -207,41 +207,6 @@ document.querySelectorAll(".contact-card .contact-button").forEach((button) => {
   });
 });
 
-// kirim pesan
-function sendToWhatsApp(event) {
-  event.preventDefault();
-
-  const form = document.getElementById("contact-form");
-  const name = document.getElementById("username").value.trim();
-  const email = document.getElementById("Email").value.trim();
-  const userPhone = document.getElementById("Phone").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !userPhone || !message) {
-    alert("Please fill in all fields!");
-    return;
-  }
-
-  const phonePattern = /^[0-9]+$/;
-  if (!phonePattern.test(userPhone)) {
-    alert("Your phone number is invalid");
-    return;
-  }
-
-  const waTarget = "628989083634";
-  const text = encodeURIComponent(`Hello, I would like to contact you.\n\nNama: ${name}\nEmail: ${email}\nPhone: ${userPhone}\nPesan: ${message}`);
-
-  const waUrl = `https://wa.me/${waTarget}?text=${text}`;
-  const newWindow = window.open(waUrl, "_blank");
-
-  if (newWindow) {
-    newWindow.focus();
-    form.reset();
-  } else {
-    alert("Allow pop-ups to open WhatsApp.");
-  }
-}
-
 //  animasi ketika klik menu home dan back to top
 document.addEventListener("DOMContentLoaded", function () {
   const menuHome = document.querySelector('a[href="#home"]');
@@ -300,3 +265,55 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// kirim pesan ke spreadsheets
+const scriptURL = "https://script.google.com/macros/s/AKfycbxfaloCukbOEFFYvHvF6xZmuMBoP3OC7u9rbfwPOY9wl9k-QtaTxIKMg0evN7VT8UUvxg/exec";
+const form = document.getElementById("contact-form");
+const alertBox = document.getElementById("alert-box");
+const alertMessage = document.getElementById("alert-message");
+const submitButton = form.querySelector('button[type="submit"]');
+const phoneInput = form.querySelector('input[name="phone"]');
+
+phoneInput.addEventListener("input", (e) => {
+  const originalValue = e.target.value;
+  const filteredValue = originalValue.replace(/[^0-9+\-\s]/g, "");
+
+  if (originalValue !== filteredValue) {
+    alert("Your phone number is invalid");
+  }
+
+  e.target.value = filteredValue;
+});
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Disable tombol supaya gak bisa klik lagi
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => {
+      alertMessage.textContent = "Thank you! We have received your message.";
+      alertBox.style.backgroundColor = "#d4edda"; // hijau sukses
+      alertBox.style.color = "#155724";
+      alertBox.style.borderColor = "#c3e6cb";
+      alertBox.classList.remove("hidden");
+      form.reset();
+    })
+    .catch((error) => {
+      alertMessage.textContent = "Error submitting form: " + error.message;
+      alertBox.style.backgroundColor = "#f8d7da"; // merah error
+      alertBox.style.color = "#721c24";
+      alertBox.style.borderColor = "#f5c6cb";
+      alertBox.classList.remove("hidden");
+    })
+    .finally(() => {
+      // Enable tombol kembali, ubah text lagi
+      submitButton.disabled = false;
+      submitButton.innerHTML = `<i class="uil uil-navigator button-icon"></i>Send Message`;
+    });
+});
+
+function closeAlert() {
+  alertBox.classList.add("hidden");
+}

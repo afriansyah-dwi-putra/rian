@@ -784,7 +784,7 @@
                 <span class="contact-button">Write me <i class="uil uil-arrow-right contact-button-icon"></i></span>
               </div>
 
-              <div class="contact-card" data-link="https://wa.me/6281381235841">
+              <div class="contact-card" data-link="https://wa.me/628989083634">
                 <i class="uil uil-whatsapp contact-card-icon"></i>
                 <h3 class="contact-card-title">Whatsapp</h3>
                 <span class="contact-card-data">0898-908-3634</span>
@@ -801,7 +801,7 @@
           </div>
 
           <div class="contact-content">
-            <form action="" class="contact-form" id="contact-form" onsubmit="sendToWhatsApp(event)">
+            <form action="" class="contact-form" id="contact-form">
               <div class="input-container">
                 <input type="text" class="input" id="username" name="username" autocomplete="name" />
                 <label for="username" class="visually-hidden">Username</label>
@@ -828,6 +828,7 @@
 
               <button type="submit" class="button"><i class="uil uil-navigator button-icon"></i>Send Message</button>
             </form>
+            <div id="alert-box" class="alert hidden"><span id="alert-message">Success!</span> <button class="close-btn" onclick="closeAlert()">×</button></div>
           </div>
         </div>
       </section>
